@@ -7,17 +7,43 @@
   <meta name="description" content="Online Coaching für Kickboxen, Krafttraining und Ernährung – klar, individuell, messbar.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; margin: 0; background: #111; color: #fff; }
-    header { padding: 40px; text-align: center; background: #ffcc00; color: #000; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { margin: 5px 0 0; }
-    section { padding: 40px; max-width: 900px; margin: auto; }
-    h2 { color: #ffcc00; margin-top: 0; }
-    .angebot, .preise, .ablauf, .ueber, .faq, .kontakt {
-      background: #1a1a1a; margin-bottom: 20px; padding: 20px; border-radius: 8px;
+    :root{
+      --bg:#111; --panel:#1a1a1a; --text:#fff; --muted:#bdbdbd; --brand:#ffc008; --brand-dark:#e6ac00;
     }
-    footer { background: #000; color: #888; padding: 20px; font-size: 0.9rem; }
-    a { color: #ffcc00; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:960px;margin:0 auto;padding:24px}
+    header{padding:36px 24px;text-align:center;background:#0f0f0f;border-bottom:1px solid #222}
+    header h1{margin:0 0 6px;font-size:clamp(28px,5vw,40px);letter-spacing:.2px}
+    header p{margin:0;color:var(--muted);font-size:clamp(14px,2.8vw,18px)}
+    section{padding:28px 0}
+    .card{background:var(--panel);border:1px solid #262626;border-radius:12px;padding:20px}
+    h2{margin:0 0 12px;color:var(--brand);font-size:clamp(20px,3.8vw,26px)}
+    ul{margin:10px 0 0;padding-left:18px}
+    .grid{display:grid;gap:16px}
+    .btn{display:inline-block;background:var(--brand);color:#000;font-weight:700;border:0;border-radius:10px;padding:12px 16px}
+    .btn:hover{background:var(--brand-dark)}
+    .btn.secondary{background:#2a2a2a;color:#fff}
+    .stack{display:flex;gap:10px;flex-wrap:wrap}
+    input,textarea,select{
+      width:100%;background:#111;border:1px solid #2a2a2a;color:#fff;border-radius:10px;
+      padding:12px;font-size:16px
+    }
+    label{display:block;font-weight:600;margin:8px 0 4px}
+    .note{color:var(--muted);font-size:.9rem;margin-top:6px}
+    .success-message,.error-message{display:none;padding:10px;border-radius:8px;margin-top:10px;font-weight:600}
+    .success-message{background:#1f7a37}
+    .error-message{background:#8b2635}
+    footer{border-top:1px solid #222;background:#0f0f0f;padding:22px 24px;color:#a8a8a8;font-size:.95rem}
+    footer b{color:#ddd}
+    /* Mobile Tweaks */
+    @media (max-width:640px){
+      .container{padding:18px}
+      .stack .btn{width:100%;text-align:center}
+      .card{padding:16px}
+      section{padding:22px 0}
+    }
   </style>
 </head>
 <body>
@@ -27,51 +53,105 @@
   <p>Online Fitness & Kickboxing Coaching – mit Kamil Jaroszewicz</p>
 </header>
 
-<section class="angebot">
-  <h2>Angebot</h2>
-  <p>Individuelle Trainingspläne, Ernährungskonzepte und 1:1-Betreuung für Kickboxen, Krafttraining und Fitness.</p>
-</section>
+<main class="container">
+  <section class="grid">
+    <div class="card">
+      <h2>Angebot</h2>
+      <p>Individuelle Trainingspläne, Ernährungskonzepte und 1:1-Betreuung für Kickboxen, Krafttraining und Fitness.</p>
+      <div class="stack" style="margin-top:8px">
+        <a class="btn" href="#kontakt">Anfragen</a>
+        <a class="btn secondary" href="https://calendly.com/kamiljaroszewicz1/30min" target="_blank" rel="noopener">Direkt Termin buchen</a>
+      </div>
+    </div>
 
-<section class="preise">
-  <h2>Preise</h2>
-  <ul>
-    <li>Basic – 79€ / Monat</li>
-    <li>Standard – 149€ / Monat</li>
-    <li>Premium – 249€ / Monat</li>
-  </ul>
-</section>
+    <div class="card">
+      <h2>Preise</h2>
+      <ul>
+        <li>Basic – 79€ / Monat</li>
+        <li>Standard – 149€ / Monat</li>
+        <li>Premium – 249€ / Monat</li>
+      </ul>
+      <p class="note">Monatlich kündbar. Plätze limitiert.</p>
+    </div>
 
-<section class="ablauf">
-  <h2>So läuft's ab</h2>
-  <p>Nach deiner Anmeldung führen wir ein Analysegespräch, erstellen deinen Plan und betreuen dich regelmäßig per Video-Call oder Chat.</p>
-</section>
+    <div class="card">
+      <h2>So läuft's ab</h2>
+      <p>Analysegespräch → individueller Plan (48–72h) → wöchentliche Check-ins per Chat/Call → Anpassungen nach Fortschritt.</p>
+    </div>
 
-<section class="ueber">
-  <h2>Über mich</h2>
-  <p>Ich bin Kamil Jaroszewicz, ausgebildeter Trainer und Kickboxer. Mein Ziel: dir helfen, stärker, fitter und gesünder zu werden – ohne unnötiges Blabla.</p>
-</section>
+    <div class="card">
+      <h2>Über mich</h2>
+      <p>Ich bin Kamil Jaroszewicz, Trainer in Ausbildung und Kickboxer. Fokus: Technik, Progression, Alltagstauglichkeit – ohne Bullshit.</p>
+    </div>
 
-<section class="faq">
-  <h2>FAQ</h2>
-  <p><b>Brauche ich Vorerfahrung?</b> Nein – dein Plan wird an dein Level angepasst.</p>
-  <p><b>Kann ich kündigen?</b> Ja, monatlich kündbar.</p>
-</section>
+    <div class="card">
+      <h2>FAQ</h2>
+      <p><b>Brauche ich Vorerfahrung?</b> Nein – dein Plan wird an dein Level angepasst.</p>
+      <p><b>Kann ich kündigen?</b> Ja, monatlich kündbar.</p>
+    </div>
 
-<section class="kontakt">
-  <h2>Kontakt</h2>
-  <p>E-Mail: <a href="mailto:kamiljaroszewicz21@gmail.com">kamiljaroszewicz21@gmail.com</a></p>
-  <p>Instagram: <a href="https://instagram.com/donkamilo5" target="_blank">@donkamilo5</a></p>
-</section>
+    <div id="kontakt" class="card">
+      <h2>Kontakt</h2>
+      <form id="contactForm" action="https://formspree.io/f/mgvzrprd" method="POST">
+        <label>Dein Name
+          <input type="text" name="name" required placeholder="Dein Name">
+        </label>
+        <label>Deine E-Mail
+          <input type="email" name="email" required placeholder="name@mail.de">
+        </label>
+        <label>Ziel
+          <select name="ziel">
+            <option>Fettverlust</option>
+            <option>Muskelaufbau</option>
+            <option>Kraft</option>
+            <option>Allgemeine Fitness</option>
+          </select>
+        </label>
+        <label>Deine Nachricht
+          <textarea name="message" rows="5" required placeholder="Kurz dein Status, Alltag, Erfahrung"></textarea>
+        </label>
+        <div class="stack">
+          <button class="btn" type="submit">Absenden</button>
+          <a class="btn secondary" href="https://calendly.com/kamiljaroszewicz1/30min" target="_blank" rel="noopener">Termin wählen</a>
+        </div>
+        <div class="success-message" id="successMessage">✅ Danke! Ich melde mich innerhalb von 24–48h.</div>
+        <div class="error-message" id="errorMessage">❌ Senden fehlgeschlagen. Bitte später erneut versuchen.</div>
+        <p class="note">Mit dem Absenden bestätigst du die Verarbeitung deiner Daten zur Kontaktaufnahme.</p>
+      </form>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <p><b>Impressum:</b><br>
-  Kamil Jaroszewicz<br>
-  Palleskestraße 8<br>
-  65929 Frankfurt am Main<br>
-  Deutschland<br>
-  E-Mail: <a href="mailto:kamiljaroszewicz21@gmail.com">kamiljaroszewicz21@gmail.com</a></p>
-  <p>Coaching ersetzt keine ärztliche Behandlung.</p>
+  <div class="container">
+    <b>Impressum</b><br>
+    Kamil Jaroszewicz · Palleskestraße 8 · 65929 Frankfurt am Main · Deutschland<br>
+    E-Mail: <a href="mailto:kamiljaroszewicz21@gmail.com">kamiljaroszewicz21@gmail.com</a><br>
+    <span class="note">Coaching ersetzt keine ärztliche Behandlung.</span>
+  </div>
 </footer>
+
+<script>
+  // Formspree success/error ohne Seitenreload
+  const form = document.getElementById('contactForm');
+  const ok = document.getElementById('successMessage');
+  const err = document.getElementById('errorMessage');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    ok.style.display = 'none';
+    err.style.display = 'none';
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) { ok.style.display = 'block'; form.reset(); }
+      else { err.style.display = 'block'; }
+    } catch { err.style.display = 'block'; }
+  });
+</script>
 
 </body>
 </html>
